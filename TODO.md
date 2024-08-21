@@ -3,7 +3,6 @@
 ## Doing
 
 - [ ] Add sessions
-- [ ] tabs to buffers
 - [ ] add REST api client
 - [ ] python lint bandit
 - [ ] python testing
@@ -15,6 +14,7 @@
 
 ## Done
 
+- [X] tabs to buffers
 - [X] Add brackets visual line
 - [X] lazygit: <https://www.youtube.com/watch?v=Ihg37znaiBo>
 - [X] use nvim-lint: <https://github.com/mfussenegger/nvim-lint>

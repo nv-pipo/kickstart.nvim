@@ -1,6 +1,7 @@
 require 'custom.core.black'
 require 'custom.core.keymaps'
 require 'custom.core.mini-icons'
+require 'custom.core.mini-tabline'
 require 'custom.core.options'
 require 'custom.core.pylsp'
 require 'custom.core.ruff'

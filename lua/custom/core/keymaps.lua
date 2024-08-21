@@ -1,8 +1,7 @@
--- Use Meta + hl to switch between tabs, and new tab with Meta+Cmd + t, close with Meta+w
-vim.keymap.set('n', '<M-t>', '<cmd>tabnew<CR>', { desc = 'New tab' })
-vim.keymap.set('n', '<M-h>', '<cmd>tabprevious<CR>', { desc = 'Switch to previous tab' })
-vim.keymap.set('n', '<M-l>', '<cmd>tabnext<CR>', { desc = 'Switch to next tab' })
-vim.keymap.set('n', '<M-w>', '<cmd>tabclose<CR>', { desc = 'Close tab' })
+-- Use Meta + hl to switch between buffers (tabs via tabline plugin), close with Meta+w
+vim.keymap.set('n', '<M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous buffer' })
+vim.keymap.set('n', '<M-l>', '<cmd>bNext<CR>', { desc = 'Switch to next buffer' })
+vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
 
 -- Copilot accept next word
 vim.keymap.set('i', '<M-f>', '<Plug>(copilot-accept-word)')
