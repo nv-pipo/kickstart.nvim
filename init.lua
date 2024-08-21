@@ -103,7 +103,6 @@ vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
-vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -160,39 +159,6 @@ vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
--- Set backspace to be more intuitive
-vim.opt.backspace = { 'indent', 'eol', 'start' }
-
--- Use Meta + hl to switch between tabs, and new tab with Meta+Cmd + t, close with Meta+w
-vim.keymap.set('n', '<M-t>', '<cmd>tabnew<CR>', { desc = 'New tab' })
-vim.keymap.set('n', '<M-h>', '<cmd>tabprevious<CR>', { desc = 'Switch to previous tab' })
-vim.keymap.set('n', '<M-l>', '<cmd>tabnext<CR>', { desc = 'Switch to next tab' })
-vim.keymap.set('n', '<M-w>', '<cmd>tabclose<CR>', { desc = 'Close tab' })
-
--- Copilot accept next word
-vim.keymap.set('i', '<M-f>', '<Plug>(copilot-accept-word)')
-vim.keymap.set('i', '<M-DOWN>', '<Plug>(copilot-accept-line)')
-
--- Text to speach visually selected text
-local start_tts = function()
-  -- Save the visually selected text to register 's'
-  vim.cmd.norm '"sy'
-  -- Get the text from register 's'
-  local text = vim.fn.getreg 's'
-  -- Speak the text with a rate of 200 words per minutes
-  vim.system { 'say', text, '-r 200' }
-end
-vim.keymap.set('v', '<leader>s', start_tts, { desc = '[S]peak visually selected text' })
-
--- Stop speaking
-local stop_tts = function()
-  vim.system { 'pkill', 'say' }
-end
-vim.keymap.set('n', '<leader>ks', stop_tts, { desc = '[K]ill [S]peak visually selected text' })
-
--- Set up keybinding for select all
-vim.keymap.set('n', '<D-a>', 'G$vgg0', { desc = 'Select all' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -608,19 +574,6 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                autopep8 = { enabled = false },
-                yapf = { enabled = false },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
-                mccabe = { enabled = true },
-              },
-            },
-          },
-        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -974,26 +927,10 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
-require('lspconfig').ruff.setup {
-  init_options = {
-    settings = {
-      lineLength = 100,
-      lint = {
-        enabled = true,
-        select = { 'ALL' },
-        ignore = { 'D100', 'D101', 'D102', 'D103', 'D104', 'D105', 'D106', 'D107' },
-      },
-    },
-  },
-}
-
--- Customize the "black" formatter
-require('conform').formatters.black = {
-  args = {
-    '--stdin-filename',
-    '$FILENAME',
-    '--quiet',
-    '--line-length 100',
-    '-',
-  },
-}
+require 'custom.core.black'
+require 'custom.core.init'
+require 'custom.core.keymaps'
+require 'custom.core.pylsp'
+require 'custom.core.ruff'
+require 'custom.core.settings'
+require 'custom.core.tts'
