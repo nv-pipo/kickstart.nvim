@@ -608,6 +608,19 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                mccabe = { enabled = true },
+              },
+            },
+          },
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -647,6 +660,11 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'isort', -- python sort imports
+        'black', -- python formatter
+        'ruff', -- python formatter/linter
+        'debugpy', -- python debugger
+        'mypy', -- python type checker
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -695,6 +713,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -954,3 +973,27 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+require('lspconfig').ruff.setup {
+  init_options = {
+    settings = {
+      lineLength = 100,
+      lint = {
+        enabled = true,
+        select = { 'ALL' },
+        ignore = { 'D100', 'D101', 'D102', 'D103', 'D104', 'D105', 'D106', 'D107' },
+      },
+    },
+  },
+}
+
+-- Customize the "black" formatter
+require('conform').formatters.black = {
+  args = {
+    '--stdin-filename',
+    '$FILENAME',
+    '--quiet',
+    '--line-length 100',
+    '-',
+  },
+}
