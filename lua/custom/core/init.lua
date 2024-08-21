@@ -1,1 +1,6 @@
-return {}
+require 'custom.core.black'
+require 'custom.core.keymaps'
+require 'custom.core.options'
+require 'custom.core.pylsp'
+require 'custom.core.ruff'
+require 'custom.core.tts'
