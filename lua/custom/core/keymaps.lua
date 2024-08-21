@@ -10,3 +10,7 @@ vim.keymap.set('i', '<M-DOWN>', '<Plug>(copilot-accept-line)')
 
 -- Set up keybinding for select all
 vim.keymap.set('n', '<M-a>', 'G$vgg0', { desc = 'Select all' })
+
+-- Set move visual blocks with Alt + jk
+vim.keymap.set('v', '<M-j>', ":move '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', '<M-k>', ":move '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
