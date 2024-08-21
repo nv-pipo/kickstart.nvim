@@ -13,3 +13,7 @@ vim.keymap.set('n', '<M-a>', 'G$vgg0', { desc = 'Select all' })
 -- Set move visual blocks with Alt + jk
 vim.keymap.set('v', '<M-j>', ":move '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
 vim.keymap.set('v', '<M-k>', ":move '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+
+-- Keep screen cenered when moving up and down
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half screen down' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half screen up' })
