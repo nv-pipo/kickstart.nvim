@@ -17,3 +17,7 @@ vim.keymap.set('v', '<M-k>', ":move '<-2<CR>gv=gv", { desc = 'Move selected line
 -- Keep screen cenered when moving up and down
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half screen down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half screen up' })
+
+-- Keep screen centered when searching
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Move to next search result' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Move to previous search result' })
