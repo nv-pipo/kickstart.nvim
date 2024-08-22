@@ -14,6 +14,7 @@
 
 ## Done
 
+- [X] Add undo tree
 - [X] tabs to buffers
 - [X] Add brackets visual line
 - [X] lazygit: <https://www.youtube.com/watch?v=Ihg37znaiBo>
