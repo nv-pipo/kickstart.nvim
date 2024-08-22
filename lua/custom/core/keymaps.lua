@@ -29,6 +29,3 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half screen up' })
 -- Keep screen centered when searching
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Move to next search result' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Move to previous search result' })
-
--- Add keybinding for kulala (REST client)
-vim.api.nvim_set_keymap('n', '<S-CR>', ":lua require('kulala').run()<CR>", { noremap = true, silent = true })
