@@ -616,6 +616,7 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'isort', -- python sort imports
         'black', -- python formatter
+        'pylsp', -- python language server
         'ruff', -- python formatter/linter
         'debugpy', -- python debugger
         'mypy', -- python type checker
