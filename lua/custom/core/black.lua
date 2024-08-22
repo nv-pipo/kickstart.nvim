@@ -3,7 +3,8 @@ require('conform').formatters.black = {
     '--stdin-filename',
     '$FILENAME',
     '--quiet',
-    '--line-length 100',
+    '--line-length',
+    '100',
     '-',
   },
 }
