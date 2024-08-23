@@ -10,9 +10,13 @@ vim.keymap.set('i', '<M-DOWN>', '<Plug>(copilot-accept-line)')
 -- Set up keybinding for select all
 vim.keymap.set('n', '<M-a>', 'G$vgg0', { desc = 'Select all' })
 
--- Add keybinding for duplicate line/block up and down
+-- Add keybinding to duplicate line up and down
 vim.keymap.set('n', '<M-J>', 'mz"zVyP`z', { desc = 'Duplicate current line down' })
 vim.keymap.set('n', '<M-K>', 'mz"zVyP`z:move .-2<CR>', { desc = 'Duplicate current line up' })
+
+-- Add keybinding to duplicate visual block
+vim.keymap.set('v', '<M-K>', "y'>pgv", { desc = 'Duplicate selected lines up' })
+vim.keymap.set('v', '<M-J>', 'yPgv', { desc = 'Duplicate selected lines down' })
 
 -- Add keybinding for moving lines up and down
 vim.keymap.set('n', '<M-k>', ':m .-2<CR>==', { desc = 'Move current line up' })
