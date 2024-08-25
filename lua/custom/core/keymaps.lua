@@ -4,8 +4,8 @@ vim.keymap.set('n', '<M-l>', '<cmd>bNext<CR>', { desc = 'Switch to next buffer' 
 vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
 
 -- Copilot accept next word
-vim.keymap.set('i', '<M-f>', '<Plug>(copilot-accept-word)')
-vim.keymap.set('i', '<M-DOWN>', '<Plug>(copilot-accept-line)')
+vim.keymap.set('i', '<M-l>', '<Plug>(copilot-accept-word)')
+vim.keymap.set('i', '<M-j>', '<Plug>(copilot-accept-line)')
 
 -- Set up keybinding for select all
 vim.keymap.set('n', '<M-a>', 'G$vgg0', { desc = 'Select all' })
