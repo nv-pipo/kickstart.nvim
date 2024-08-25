@@ -9,7 +9,6 @@
   - [ ] <https://github.com/mg979/vim-visual-multi?tab=readme-ov-file>
   - [ ] <https://github.com/smoka7/multicursors.nvim?tab=readme-ov-file>
   - [ ] <https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/>
-- [ ] Check why icons need mini.icons and nvim-tree/nvim-web-devicons
 
 ## Done
 
