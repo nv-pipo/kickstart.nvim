@@ -2,7 +2,6 @@
 
 ## Doing
 
-- [ ] Add sessions
 - [ ] python lint bandit
 - [ ] python testing
 - [ ] copilot chat
@@ -14,6 +13,7 @@
 
 ## Done
 
+- [X] Add sessions
 - [X] add REST api client
 - [X] Add undo tree
 - [X] tabs to buffers
