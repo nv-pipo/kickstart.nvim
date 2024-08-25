@@ -1,6 +1,6 @@
 -- Use Meta + hl to switch between buffers (tabs via tabline plugin), close with Meta+w
 vim.keymap.set('n', '<M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous buffer' })
-vim.keymap.set('n', '<M-l>', '<cmd>bNext<CR>', { desc = 'Switch to next buffer' })
+vim.keymap.set('n', '<M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
 vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
 
 -- Copilot accept next word
