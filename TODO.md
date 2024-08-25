@@ -2,7 +2,11 @@
 
 ## Doing
 
+- [ ] do formatting with ruff to get rid of black/isort
 - [ ] python lint bandit
+- [ ] split nvim config into multiple files and suggest structure to kickstart:
+  - [ ] "If you prefer standalone Lazy plugin specs": <https://github.com/debugloop/telescope-undo.nvim>
+- [ ] quickfix list usage?
 - [ ] python testing
 - [ ] copilot chat
 - [ ] multicursor
