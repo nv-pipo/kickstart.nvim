@@ -10,9 +10,13 @@ vim.opt.inccommand = 'split'
 -- Don't have 'o' add a comment
 vim.opt.formatoptions:remove 'o'
 
--- Add extension for 'http' filetype. Required for kulala
 vim.filetype.add {
   extension = {
+    -- Add extension for 'http' filetype. Required for kulala
     ['http'] = 'http',
+  },
+  pattern = {
+    -- Add pattern for 'dotenv' filetype
+    ['.env.*'] = 'dotenv',
   },
 }
