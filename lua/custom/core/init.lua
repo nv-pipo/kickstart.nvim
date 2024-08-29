@@ -1,8 +1,4 @@
-require 'custom.core.black'
-require 'custom.core.keymaps'
-require 'custom.core.mini-icons'
-require 'custom.core.mini-tabline'
-require 'custom.core.options'
-require 'custom.core.pylsp'
-require 'custom.core.ruff'
-require 'custom.core.tts'
+for filename in io.popen([[ls lua/custom/core/*.lua | grep -v init.lua]]):lines() do
+  local module_name = string.match(filename, '([^/]+).lua')
+  require('custom.core.' .. module_name)
+end
