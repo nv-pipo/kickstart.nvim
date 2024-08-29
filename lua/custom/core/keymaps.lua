@@ -8,7 +8,7 @@ vim.keymap.set('i', '<M-l>', '<Plug>(copilot-accept-word)')
 vim.keymap.set('i', '<M-j>', '<Plug>(copilot-accept-line)')
 
 -- Set up keybinding for select all
-vim.keymap.set('n', '<M-a>', 'G$vgg0', { desc = 'Select all' })
+vim.keymap.set('n', '<C-space>4', 'G$vgg0', { desc = 'Select all' })
 
 -- Add keybinding to duplicate line up and down
 vim.keymap.set('n', '<M-J>', 'mz"zVyP`z', { desc = 'Duplicate current line down' })
