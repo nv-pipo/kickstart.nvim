@@ -579,6 +579,26 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = 'standard', -- off, basic, standard, strict, all
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                autoImportCompletions = true,
+                diagnosticsMode = 'openFilesOnly', -- workspace, openFilesOnly
+                -- diagnosticSeverityOverrides = {
+                --   reportUnknownMemberType = false,
+                --   reportUnknownArgumentType = false,
+                --   reportUnusedClass = "warning",
+                --   reportUnusedFunction = "warning",
+                --   reportUndefinedVariable = false, -- ruff handles this with F822
+                -- },
+              },
+            },
+          },
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -621,7 +641,7 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'isort', -- python sort imports
         'black', -- python formatter
-        'pylsp', -- python language server
+        'basedpyright', -- python language server
         'ruff', -- python formatter/linter
         'debugpy', -- python debugger
         'mypy', -- python type checker
