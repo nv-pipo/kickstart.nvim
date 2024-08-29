@@ -579,6 +579,23 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
+        yamlls = {
+          on_new_config = function(new_config)
+            new_config.settings.yaml.schemas = new_config.settings.yaml.schemas or {}
+            vim.list_extend(new_config.settings.yaml.schemas, require('schemastore').yaml.schemas())
+          end,
+          settings = {
+            yaml = {
+              orderedKeys = false,
+              format = {
+                enable = true,
+              },
+              -- schemas = {
+              --   ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+              -- },
+            },
+          },
+        },
         basedpyright = {
           settings = {
             basedpyright = {
