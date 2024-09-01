@@ -16,6 +16,7 @@
 
 ## Done
 
+- [X] spell check
 - [X] Add sessions
 - [X] add REST api client
 - [X] Add undo tree
