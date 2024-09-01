@@ -15,8 +15,4 @@ vim.filetype.add {
     -- Add extension for 'http' filetype. Required for kulala
     ['http'] = 'http',
   },
-  pattern = {
-    -- Add pattern for 'dotenv' filetype
-    ['.env.*'] = 'dotenv',
-  },
 }
