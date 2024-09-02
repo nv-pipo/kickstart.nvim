@@ -656,8 +656,6 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'isort', -- python sort imports
-        'black', -- python formatter
         'basedpyright', -- python language server
         'ruff', -- python formatter/linter
         'debugpy', -- python debugger
@@ -710,7 +708,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
-        python = { 'isort', 'black' },
+        python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         css = { 'prettierd' },
         html = { 'prettierd' },
         --
