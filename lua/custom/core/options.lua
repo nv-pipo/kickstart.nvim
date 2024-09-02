@@ -20,5 +20,5 @@ vim.filetype.add {
 -- Set spell checking
 vim.opt.spell = true
 vim.opt.spellcapcheck = ''
-vim.opt.spelllang = { 'en_us', 'es' }
+vim.opt.spelllang = { 'en' }
 vim.opt.spelloptions = { 'camel' }
