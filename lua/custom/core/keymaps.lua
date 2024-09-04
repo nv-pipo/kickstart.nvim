@@ -1,4 +1,4 @@
--- Use Meta + hl to switch between buffers (tabs via tabline plugin), close with Meta+w
+-- Use Meta + h/l to switch between buffers (tabs via tabline plugin), close with Meta+w
 vim.keymap.set('n', '<M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous buffer' })
 vim.keymap.set('n', '<M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
 vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
@@ -10,7 +10,7 @@ vim.keymap.set('i', '<M-j>', '<Plug>(copilot-accept-line)')
 -- Set up keybinding for select all
 vim.keymap.set('n', '<C-space>4', 'G$vgg0', { desc = 'Select all' })
 
--- Comemnt line while in insert mode (by exiting insert mode)
+-- Comment line while in insert mode (by exiting insert mode)
 vim.keymap.set('i', '<C-space>5', '<Esc>gcc', { desc = 'Comment line', remap = true })
 vim.keymap.set('n', '<C-space>5', 'gcc', { desc = 'Comment line', remap = true })
 vim.keymap.set('v', '<C-space>5', 'gcgv', { desc = 'Comment selection', remap = true })
@@ -27,11 +27,11 @@ vim.keymap.set('v', '<M-J>', 'yPgv', { desc = 'Duplicate selected lines down' })
 vim.keymap.set('n', '<M-k>', ':m .-2<CR>==', { desc = 'Move current line up' })
 vim.keymap.set('n', '<M-j>', ':m .+1<CR>==', { desc = 'Move current line down' })
 
--- Set move visual blocks with Alt + jk
+-- Set move visual blocks with Alt + j/k
 vim.keymap.set('v', '<M-j>', ":move '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
 vim.keymap.set('v', '<M-k>', ":move '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
--- Keep screen cenered when moving up and down
+-- Keep screen centered when moving up and down
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half screen down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half screen up' })
 
