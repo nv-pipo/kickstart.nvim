@@ -8,8 +8,7 @@ return {
         { text = { '%s' }, click = 'v:lua.ScSa' },
         { sign = { name = { 'Dap' }, maxwidth = 1, colwidth = 2, auto = false }, click = 'v:lua.ScSa' },
         { text = { builtin.lnumfunc, ' ' }, condition = { true, builtin.not_empty }, click = 'v:lua.ScLa' },
-        { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
-        { sign = { name = { 'lsdkfj' }, maxwidth = 1, colwidth = 1, auto = false } },
+        { text = { ' ', builtin.foldfunc, ' ' }, click = 'v:lua.ScFa' },
       },
     }
   end,
