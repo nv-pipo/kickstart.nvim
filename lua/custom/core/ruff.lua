@@ -6,7 +6,7 @@ require('lspconfig').ruff.setup {
       lint = {
         enabled = true,
         select = { 'ALL' },
-        ignore = { 'D100', 'D101', 'D102', 'D103', 'D104', 'D105', 'D106', 'D107' },
+        ignore = { 'D100', 'D101', 'D102', 'D103', 'D104', 'D105', 'D106', 'D107', 'COM812' },
       },
     },
   },
