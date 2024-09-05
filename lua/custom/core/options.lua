@@ -22,3 +22,6 @@ vim.opt.spell = true
 vim.opt.spellcapcheck = ''
 vim.opt.spelllang = { 'en' }
 vim.opt.spelloptions = { 'camel' }
+
+-- Use vim-notify
+vim.notify = require 'notify'
