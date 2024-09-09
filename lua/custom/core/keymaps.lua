@@ -38,3 +38,32 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half screen up' })
 -- Keep screen centered when searching
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Move to next search result' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Move to previous search result' })
+
+-- Change buffer with Alt + 1/2/3/4
+local function go_to_buffer(buffer_number)
+  local bufs_loaded = {}
+  -- filter out the buffers that are not loaded
+  for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_get_option_value('buflisted', { buf = buf_id }) then
+      bufs_loaded[#bufs_loaded + 1] = buf_id
+    end
+  end
+  local buf_id = bufs_loaded[buffer_number]
+  if buf_id then
+    vim.cmd('buffer ' .. buf_id)
+  else
+    vim.notify('Buffer ' .. buffer_number .. ' does not exist', 'error')
+  end
+end
+vim.keymap.set('n', '<M-1>', function()
+  go_to_buffer(1)
+end, { desc = 'Switch to buffer 1' })
+vim.keymap.set('n', '<M-2>', function()
+  go_to_buffer(2)
+end, { desc = 'Switch to buffer 2' })
+vim.keymap.set('n', '<M-3>', function()
+  go_to_buffer(3)
+end, { desc = 'Switch to buffer 3' })
+vim.keymap.set('n', '<M-4>', function()
+  go_to_buffer(4)
+end, { desc = 'Switch to buffer 4' })
