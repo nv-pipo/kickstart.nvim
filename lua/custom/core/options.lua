@@ -1,6 +1,3 @@
--- Remove the command line from the bottom of the screen. It's functionality is replaced by noice
-vim.opt.cmdheight = 0
-
 -- Make line numbers relative
 vim.opt.relativenumber = true
 
