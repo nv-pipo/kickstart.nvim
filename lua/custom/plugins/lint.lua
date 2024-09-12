@@ -8,7 +8,7 @@ return {
       lint.linters_by_ft = {
         dockerfile = { 'hadolint' },
         json = { 'jsonlint' },
-        markdown = { 'markdownlint' },
+        markdown = { 'markdownlint', 'vale' },
         python = { 'mypy' },
         text = { 'vale' },
       }
