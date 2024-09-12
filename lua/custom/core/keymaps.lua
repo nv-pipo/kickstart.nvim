@@ -8,12 +8,12 @@ vim.keymap.set('i', '<M-l>', '<Plug>(copilot-accept-word)')
 vim.keymap.set('i', '<M-j>', '<Plug>(copilot-accept-line)')
 
 -- Set up keybinding for select all
-vim.keymap.set('n', '<C-space>4', 'G$vgg0', { desc = 'Select all' })
+vim.keymap.set('n', '<M-ä>', 'G$vgg0', { desc = 'Select all' })
 
 -- Comment line while in insert mode (by exiting insert mode)
-vim.keymap.set('i', '<C-space>5', '<Esc>gcc', { desc = 'Comment line', remap = true })
-vim.keymap.set('n', '<C-space>5', 'gcc', { desc = 'Comment line', remap = true })
-vim.keymap.set('v', '<C-space>5', 'gcgv', { desc = 'Comment selection', remap = true })
+vim.keymap.set('i', '<M-ş>', '<Esc>gcc', { desc = 'Comment line', remap = true })
+vim.keymap.set('n', '<M-ş>', 'gcc', { desc = 'Comment line', remap = true })
+vim.keymap.set('v', '<M-ş>', 'gcgv', { desc = 'Comment selection', remap = true })
 
 -- Add keybinding to duplicate line up and down
 vim.keymap.set('n', '<M-J>', 'mz"zVyP`z', { desc = 'Duplicate current line down' })
