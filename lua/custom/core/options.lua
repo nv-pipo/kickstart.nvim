@@ -14,6 +14,8 @@ vim.filetype.add {
   extension = {
     -- Add extension for 'http' filetype. Required for kulala
     ['http'] = 'http',
+    -- Add extension for 'kql' filetype. KUSTO Query Language
+    ['kql'] = 'kusto',
   },
 }
 
