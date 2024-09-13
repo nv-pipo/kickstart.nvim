@@ -953,6 +953,23 @@ require('lazy').setup({
       auto_install = true,
       highlight = {
         enable = true,
+        -- disable for large files and files with long lines
+        disable = function(_, bufnr)
+          local num_lines = vim.api.nvim_buf_line_count(bufnr)
+          if num_lines > 50000 then
+            vim.notify('Disabling treesitter for buffer ' .. bufnr .. ' with ' .. num_lines .. ' lines')
+            return true
+          end
+
+          local buff_lines = vim.api.nvim_buf_get_lines(bufnr, 0, num_lines, false)
+          for _, line in ipairs(buff_lines) do
+            if #line > 10000 then
+              vim.notify('Disabling treesitter for buffer ' .. bufnr .. ' with line longer than 10000 characters')
+              return true
+            end
+          end
+          return false
+        end,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
