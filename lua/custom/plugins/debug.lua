@@ -32,9 +32,10 @@ return {
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
       { '<F17>', dap.terminate, desc = 'Debug: Terminate' }, -- Shift + F5
       -- { '<F6>', dap.ext.vscode.load_launchjs, desc = 'Debug: Load configurations from .vscode/launch.json' }, -- Load configurations from .vscode/launch.json
-      { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
-      { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
-      { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
+      { '<leader>P', dap.continue, desc = 'Debug: Start/Continue' },
+      { '<leader>J', dap.step_into, desc = 'Debug: Step Into' },
+      { '<leader>L', dap.step_over, desc = 'Debug: Step Over' },
+      { '<leader>K', dap.step_out, desc = 'Debug: Step Out' },
       { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
       {
         '<leader>B',
