@@ -32,6 +32,7 @@ return {
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
       { '<F17>', dap.terminate, desc = 'Debug: Terminate' }, -- Shift + F5
       -- { '<F6>', dap.ext.vscode.load_launchjs, desc = 'Debug: Load configurations from .vscode/launch.json' }, -- Load configurations from .vscode/launch.json
+      { '<leader>T', ':lua require("dap-python").test_method()<CR>', desc = 'Debug: Start/Continue' },
       { '<leader>P', dap.continue, desc = 'Debug: Start/Continue' },
       { '<leader>J', dap.step_into, desc = 'Debug: Step Into' },
       { '<leader>L', dap.step_over, desc = 'Debug: Step Over' },
