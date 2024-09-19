@@ -908,6 +908,8 @@ require('lazy').setup({
         },
       }
 
+      require('mini.notify').setup()
+
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
