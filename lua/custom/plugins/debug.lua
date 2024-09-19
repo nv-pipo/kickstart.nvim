@@ -13,6 +13,7 @@ return {
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
 
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
@@ -24,32 +25,6 @@ return {
     -- Add your own debuggers here
     'mfussenegger/nvim-dap-python',
   },
-  keys = function(_, keys)
-    local dap = require 'dap'
-    local dapui = require 'dapui'
-    return {
-      -- Basic debugging keymaps, feel free to change to your liking!
-      { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<F17>', dap.terminate, desc = 'Debug: Terminate' }, -- Shift + F5
-      -- { '<F6>', dap.ext.vscode.load_launchjs, desc = 'Debug: Load configurations from .vscode/launch.json' }, -- Load configurations from .vscode/launch.json
-      { '<leader>T', ':lua require("dap-python").test_method()<CR>', desc = 'Debug: Start/Continue' },
-      { '<leader>P', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<leader>J', dap.step_into, desc = 'Debug: Step Into' },
-      { '<leader>L', dap.step_over, desc = 'Debug: Step Over' },
-      { '<leader>K', dap.step_out, desc = 'Debug: Step Out' },
-      { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
-      {
-        '<leader>B',
-        function()
-          dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-        end,
-        desc = 'Debug: Set Breakpoint',
-      },
-      -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-      { '<F7>', dapui.toggle, desc = 'Debug: See last session result.' },
-      unpack(keys),
-    }
-  end,
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
@@ -60,6 +35,23 @@ return {
     vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'Comment', linehl = '', numhl = '' })
     vim.fn.sign_define('DapStopped', { text = '󰧚', texthl = 'String', linehl = 'DiffAdd', numhl = '' })
 
+    -- Evaluate var under cursor
+    vim.keymap.set('n', '<space>?', function()
+      require('dapui').eval(nil, { enter = true })
+    end)
+
+    vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Continue/Start debugging' })
+    vim.keymap.set('n', '<F7>', dap.restart)
+    vim.keymap.set('n', '<F17>', dap.terminate)
+    vim.keymap.set('n', '<leader>T', ':lua require("dap-python").test_method()<CR>', { desc = 'Test python method' })
+    vim.keymap.set('n', '<leader>P', dap.continue)
+    vim.keymap.set('n', '<leader>J', dap.step_into)
+    vim.keymap.set('n', '<leader>L', dap.step_over)
+    vim.keymap.set('n', '<leader>K', dap.step_out)
+    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
+    vim.keymap.set('n', '<leader>B', function()
+      dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+    end)
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
       -- reasonable debug configurations
@@ -79,6 +71,8 @@ return {
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup()
+
+    require('nvim-dap-virtual-text').setup {}
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
