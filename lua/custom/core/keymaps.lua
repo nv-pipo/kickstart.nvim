@@ -3,6 +3,9 @@ vim.keymap.set('n', '<M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous 
 vim.keymap.set('n', '<M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
 vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
 
+-- Oil
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
 -- Copilot accept next word
 vim.keymap.set('i', '<M-l>', '<Plug>(copilot-accept-word)')
 vim.keymap.set('i', '<M-j>', '<Plug>(copilot-accept-line)')
