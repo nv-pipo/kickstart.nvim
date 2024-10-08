@@ -10,9 +10,9 @@ return {
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = '<tab>',
-          accept_word = '<M-l>',
-          accept_line = '<M-j>',
+          accept = '<M-ė>',
+          accept_word = '<M-ł>',
+          accept_line = '<M-ĵ>',
           next = '<M-]>',
           prev = '<M-[>',
           dismiss = '<C-]>',

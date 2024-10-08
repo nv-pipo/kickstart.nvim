@@ -7,10 +7,6 @@ vim.keymap.set('n', '<M-n>', '<cmd>enew<CR>', { desc = 'Create new empty buffer'
 -- Oil
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
--- Copilot accept next word
-vim.keymap.set('i', '<M-l>', '<Plug>(copilot-accept-word)')
-vim.keymap.set('i', '<M-j>', '<Plug>(copilot-accept-line)')
-
 -- Set up keybinding for select all
 vim.keymap.set('n', '<M-ä>', 'G$vgg0', { desc = 'Select all' })
 
