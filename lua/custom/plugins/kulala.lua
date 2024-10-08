@@ -1,5 +1,6 @@
 return {
   'mistweaverco/kulala.nvim',
+  version = '*',
   opts = {
     default_view = 'headers_body',
     contenttypes = {
