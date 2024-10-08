@@ -1,3 +1,6 @@
+-- avante recommendation for laststatus
+vim.opt.laststatus = 3
+
 -- Make line numbers relative
 vim.opt.relativenumber = true
 
