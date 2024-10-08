@@ -908,8 +908,6 @@ require('lazy').setup({
         },
       }
 
-      require('mini.notify').setup()
-
       require('mini.jump').setup()
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)

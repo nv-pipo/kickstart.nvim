@@ -1,6 +1,9 @@
 -- avante recommendation for laststatus
 vim.opt.laststatus = 3
 
+-- nvim-notify
+vim.notify = require 'notify'
+
 -- Make line numbers relative
 vim.opt.relativenumber = true
 
