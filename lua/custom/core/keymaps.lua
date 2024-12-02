@@ -1,3 +1,21 @@
+-- paste without yanking with 'p' too
+vim.api.nvim_set_keymap('x', 'p', 'P', { noremap = true, silent = true })
+
+-- delete to blackhole register
+vim.api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'd', '"_d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'D', '"_D', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'D', '"_D', { noremap = true, silent = true })
+
+-- discard 'cut'/'change in normal mode
+vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'X', '"_X', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'c', '"_c', { noremap = true, silent = true })
+
+-- center screen when moving up and down
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+
 -- Use Meta + h/l to switch between buffers (tabs via tabline plugin), close with Meta+w
 vim.keymap.set('n', '<M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous buffer' })
 vim.keymap.set('n', '<M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
