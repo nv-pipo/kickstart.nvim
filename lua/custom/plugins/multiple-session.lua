@@ -11,7 +11,7 @@ return {
     require('multiple-session').setup {
 
       auto_load_session = function(_, _)
-        return true
+        return false
       end,
       auto_save_session = function(_, _)
         return true
