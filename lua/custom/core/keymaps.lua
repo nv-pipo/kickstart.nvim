@@ -22,9 +22,6 @@ vim.keymap.set('n', '<M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' 
 vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<M-n>', '<cmd>enew<CR>', { desc = 'Create new empty buffer' })
 
--- Oil
-vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-
 -- Set up keybinding for select all
 vim.keymap.set('n', '<D-a>', 'G$vgg0', { desc = 'Select all' })
 
@@ -73,15 +70,15 @@ local function go_to_buffer(buffer_number)
     vim.notify('Buffer ' .. buffer_number .. ' does not exist', 'error')
   end
 end
-vim.keymap.set('n', '<M-1>', function()
+vim.keymap.set('n', '<D-1>', function()
   go_to_buffer(1)
 end, { desc = 'Switch to buffer 1' })
-vim.keymap.set('n', '<M-2>', function()
+vim.keymap.set('n', '<D-2>', function()
   go_to_buffer(2)
 end, { desc = 'Switch to buffer 2' })
-vim.keymap.set('n', '<M-3>', function()
+vim.keymap.set('n', '<D-3>', function()
   go_to_buffer(3)
 end, { desc = 'Switch to buffer 3' })
-vim.keymap.set('n', '<M-4>', function()
+vim.keymap.set('n', '<D-4>', function()
   go_to_buffer(4)
 end, { desc = 'Switch to buffer 4' })
