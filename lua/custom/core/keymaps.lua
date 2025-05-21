@@ -17,10 +17,10 @@ vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
 -- Use Meta + h/l to switch between buffers (tabs via tabline plugin), close with Meta+w
-vim.keymap.set('n', '<M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous buffer' })
-vim.keymap.set('n', '<M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
-vim.keymap.set('n', '<M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
-vim.keymap.set('n', '<M-n>', '<cmd>enew<CR>', { desc = 'Create new empty buffer' })
+vim.keymap.set('n', '<C-M-h>', '<cmd>bprevious<CR>', { desc = 'Switch to previous buffer' })
+vim.keymap.set('n', '<C-M-l>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
+vim.keymap.set('n', '<C-M-w>', '<cmd>bwipeout<CR>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<C-M-n>', '<cmd>enew<CR>', { desc = 'Create new empty buffer' })
 
 -- Set up keybinding for select all
 vim.keymap.set('n', '<D-a>', 'G$vgg0', { desc = 'Select all' })
