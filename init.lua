@@ -932,9 +932,13 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    lazy = false, -- the new main branch does not support lazy-loading
     build = ':TSUpdate',
-    opts = {
-      ensure_installed = {
+    config = function()
+      -- [[ Configure Treesitter ]] See `:h nvim-treesitter`
+
+      -- Install parsers (a no-op for parsers that are already installed)
+      require('nvim-treesitter').install {
         'bash',
         'c',
         'diff',
@@ -948,45 +952,41 @@ require('lazy').setup({
         'vimdoc',
         'http',
         'kusto',
-      },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- disable for large files and files with long lines
-        disable = function(_, bufnr)
+      }
+
+      -- Treesitter highlighting is now provided by Neovim core and must be
+      -- enabled per filetype. Disable it for large files and files with long lines.
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args)
+          local bufnr = args.buf
           local num_lines = vim.api.nvim_buf_line_count(bufnr)
           if num_lines > 50000 then
             vim.notify('Disabling treesitter for buffer ' .. bufnr .. ' with ' .. num_lines .. ' lines')
-            return true
+            return
           end
 
           local buff_lines = vim.api.nvim_buf_get_lines(bufnr, 0, num_lines, false)
           for _, line in ipairs(buff_lines) do
             if #line > 10000 then
               vim.notify('Disabling treesitter for buffer ' .. bufnr .. ' with line longer than 10000 characters')
-              return true
+              return
             end
           end
-          return false
+
+          -- pcall because not every filetype has a parser installed
+          pcall(vim.treesitter.start, bufnr)
+
+          -- Treesitter-based indentation (experimental). Skipped for Ruby, which
+          -- relies on Vim's regex-based indent rules.
+          if vim.bo[bufnr].filetype ~= 'ruby' then
+            vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
         end,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
-    config = function(_, opts)
-      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+      })
 
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
-
-      -- There are additional nvim-treesitter modules that you can use to interact
-      -- with nvim-treesitter. You should go explore a few and see what interests you:
-      --
-      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+      -- Useful built-ins for exploring the treesitter tree:
+      --    - :Inspect        show highlight groups under the cursor
+      --    - :InspectTree    show the syntax tree (replaces the playground plugin)
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
