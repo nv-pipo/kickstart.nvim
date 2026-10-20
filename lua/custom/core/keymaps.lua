@@ -31,20 +31,20 @@ vim.keymap.set('n', '<D-/>', 'gcc', { desc = 'Comment line', remap = true })
 vim.keymap.set('v', '<D-/>', 'gcgv', { desc = 'Comment selection', remap = true })
 
 -- Add keybinding to duplicate line up and down
-vim.keymap.set('n', '<M-J>', 'mz"zVyP`z', { desc = 'Duplicate current line down' })
-vim.keymap.set('n', '<M-K>', 'mz"zVyP`z:move .-2<CR>', { desc = 'Duplicate current line up' })
+vim.keymap.set('n', '<M-S-Down>', 'mz"zVyP`z', { desc = 'Duplicate current line down' })
+vim.keymap.set('n', '<M-S-Up>', 'mz"zVyP`z:move .-2<CR>', { desc = 'Duplicate current line up' })
 
 -- Add keybinding to duplicate visual block
-vim.keymap.set('v', '<M-K>', "y'>pgv", { desc = 'Duplicate selected lines up' })
-vim.keymap.set('v', '<M-J>', 'yPgv', { desc = 'Duplicate selected lines down' })
+vim.keymap.set('v', '<M-S-Up>', "y'>pgv", { desc = 'Duplicate selected lines up' })
+vim.keymap.set('v', '<M-S-Down>', 'yPgv', { desc = 'Duplicate selected lines down' })
 
 -- Add keybinding for moving lines up and down
-vim.keymap.set('n', '<M-k>', ':m .-2<CR>==', { desc = 'Move current line up' })
-vim.keymap.set('n', '<M-j>', ':m .+1<CR>==', { desc = 'Move current line down' })
+vim.keymap.set('n', '<M-Up>', ':m .-2<CR>==', { desc = 'Move current line up' })
+vim.keymap.set('n', '<M-Down>', ':m .+1<CR>==', { desc = 'Move current line down' })
 
 -- Set move visual blocks with Alt + j/k
-vim.keymap.set('v', '<M-j>', ":move '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
-vim.keymap.set('v', '<M-k>', ":move '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+vim.keymap.set('v', '<M-Down>', ":move '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', '<M-Up>', ":move '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
 -- Keep screen centered when moving up and down
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half screen down' })
